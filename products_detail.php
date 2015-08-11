@@ -64,20 +64,20 @@ include_once('header.php');
                                                 <div class="product col-md-8 service-image-left">
 
                                                     <center id="item_center">
-                                                        <img id="item-display" src="image/products/banner/product1.jpg" alt=""></img>
+                                                        <img id="item-display" data-zoom-image="image/products/large/product2.jpg" src="image/products/small/product2.jpg"></img>
                                                     </center>
                                                 </div>
 
                                                 <div class="container service1-items col-sm-2 col-md-4 pull-left">
                                                     
                                                         <a id="item-1" class="service1-item gallerythumbnail">
-                                                            <img src="image/products/banner/product1.jpg" alt=""></img>
+                                                            <img src="image/products/small/product1.jpg" alt="" />
                                                         </a>
                                                         <a id="item-2" class="service1-item gallerythumbnail">
-                                                            <img src="image/products/banner/product2.jpg" alt=""></img>
+                                                            <img src="image/products/small/product2.jpg" alt="" />
                                                         </a>
                                                         <a id="item-3" class="service1-item gallerythumbnail">
-                                                            <img src="image/products/banner/product3.jpg" alt=""></img>
+                                                            <img src="image/products/small/product3.jpg" alt="" />
                                                         </a>
                                                     
                                                 </div>
@@ -274,6 +274,8 @@ include_once('header.php');
             <script src="js/bootstrap/highlight.min.js"></script>
             <script src="js/bootstrap/holder.min.js"></script>
             <script src="js/bootstrap/jquery.min.js"></script>
+            <script src='jquery-1.8.3.min.js'></script>
+            <script src='js/zoomer/jquery.elevatezoom.js'></script>
             <!-- !OUTDATED BROWSER START -->
             
             <script>
@@ -283,15 +285,36 @@ include_once('header.php');
                     $('.gallerythumbnail').on('click', function() {
                         
                         var src = $("#"+this.id+' img' ).attr('src');
+                        var zoom = src.replace("small","large");
                         
+                        console.log(zoom);
                         var img = $('<img />', {    src    : src,
-                                                'id': 'item-display'
+                                                    
+                                                'id': 'item-display',
+                                                'data-zoom-image' : zoom
                                   });
-                                  console.log(img);
+                                  
                             $('#item_center').html(img).show();
+                            $("#"+this.id+' img').attr('data-zoom-image', zoom);
+                            
+                            $('#item-display').elevateZoom({
+                                zoomType: "inner",
+                                cursor: "crosshair",
+                                zoomWindowFadeIn: 500,
+                                zoomWindowFadeOut: 750
+                            }); 
                         });
+                        
+                        $('#item-display').elevateZoom({
+                                zoomType: "inner",
+                                cursor: "crosshair",
+                                zoomWindowFadeIn: 500,
+                                zoomWindowFadeOut: 750
+                            }); 
                     });
+                    
             </script>
+            
             <script>
 //USING jQuery
 $(document).ready(function () {
