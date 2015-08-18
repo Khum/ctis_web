@@ -1,5 +1,5 @@
 <?php
-///test
+///test object it si test
 
 
 include_once('inc/functionClass.php');
