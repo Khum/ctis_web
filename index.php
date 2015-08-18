@@ -1,7 +1,14 @@
 <?php
+///test
+
+
+include_once('inc/functionClass.php');
 include_once('header.php');
 include_once('slider.php');
+
+$ctis_obj = new ctis;
 ?>
+
 
             <!-- !BANNER 2 START -->
             <div class="container" style="margin-top:20px;">
@@ -15,22 +22,18 @@ include_once('slider.php');
 
                                     <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
                                         <ul class="nav navbar-nav">
+                                            
                                             <li class="active"><a  style="text-align: center;font-weight:bold;font-size:16px;">Categories<span style="font-size:16px;" class="pull-left hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>
-                                            <li><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a></li>
-                                            <li class="dropdown">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuarios <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity "></span></a>
+<!--                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity "></span></a>
                                                 <ul class="dropdown-menu forAnimate" role="menu">
-                                                    <li><a href="{{URL::to('createusuario')}}">Crear</a></li>
-                                                    <li><a href="#">Modificar</a></li>
-                                                    <li><a href="#">Reportar</a></li>
-                                                    <li class="divider"></li>
-                                                    <li><a href="#">Separated link</a></li>
-                                                    <li class="divider"></li>
-                                                    <li><a href="#">Informes</a></li>
+                                                    
+                                                    
+                                                    
                                                 </ul>
-                                            </li>          
-                                            <li ><a href="#">Libros<span style="font-size:16px;" class="pull-right hidden-xs showopacity "></span></a></li>        
-                                            <li ><a href="#">Tags<span style="font-size:16px;" class="pull-right hidden-xs showopacity"></span></a></li>
+                                            </li>-->
+                                            <?php echo $ctis_obj -> sidebarCategories(); ?>
+                                            
                                         </ul>
                                     </div>
                                 </div>
